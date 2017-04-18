@@ -1,0 +1,49 @@
+{% extends "project3/base.html" %}
+
+{% load tethys_gizmos %
+
+{% load staticfiles %}
+
+{% block styles %}
+{{ block.super }}
+    <link rel="stylesheet" href="https://js.arcgis.com/3.20/esri/css/esri.css">
+    <style>
+      #mapDiv {
+        height: 600px;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+      }
+    </style>
+{% endblock %}
+
+{% block app_navigation_items %}
+    <h3>Hydro Power Prospector</h3>
+    <p>Plane Height</p>
+    <input type="text" id="PlaneHeight"><br>
+    <button onclick="app.run_service()">Build the Dam</button><br>
+
+    <div class="button">
+    <input type="button" id="lesen" value="Volume Result" />
+</div>
+
+<div class="text"></div>
+{% endblock %}
+
+{% block app_content %} 	
+ 
+
+ 	<div id="mapDiv"></div>
+
+{% endblock %}
+
+{% block app_actions %}
+  <a href="" class="btn btn-default">Next</a>
+  <a href="" class="btn btn-default">Back</a>
+{% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  <script src="https://js.arcgis.com/3.20/init.js"></script>
+  <script src="{% static 'project3/js/map.js' %}"></script>
+{% endblock %}
